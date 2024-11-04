@@ -1,0 +1,20 @@
+meta {
+  name: Auth
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{host}}/oauth/token
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "grant_type": "client_credentials",
+    "client_id": "12830919",
+    "client_secret": "Yadqo-F*mmfXxUHUva93@xcuxmGUk3r!xtJzZqkbnsA!naKKF*Kcw8m7F7HrAv*EJTXYWud7fnXeK6C.uVEJKt86kXmwwRY.gUm",
+    "scope": "create-offers"
+  }
+}

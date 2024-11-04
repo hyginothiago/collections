@@ -1,0 +1,19 @@
+meta {
+  name: reenviar-lembrete
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{core_url}}/v1/financiamentos/811947/biometrias
+  body: none
+  auth: bearer
+}
+
+headers {
+  X-API-KEY: {{x-api-key}}
+}
+
+auth:bearer {
+  token: {{access_token}}
+}

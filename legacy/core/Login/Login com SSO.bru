@@ -1,0 +1,26 @@
+meta {
+  name: Login com SSO
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{sso.url}}/realms/{{realm}}/protocol/openid-connect/token
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  grant_type: password
+  username: {{username}}
+  password: {{password}}
+  client_id: legacy
+}
+
+tests {
+  test("Get token auth", function () {
+      var jsonData = res.getBody();
+      bru.setGlobalEnvVar("access_token", jsonData.access_token)
+      bru.setGlobalEnvVar("refresh_token", jsonData.refresh_token)
+  });
+}

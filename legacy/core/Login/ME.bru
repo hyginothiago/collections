@@ -1,0 +1,19 @@
+meta {
+  name: ME
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{core_url}}/v1/usuarios/me
+  body: none
+  auth: bearer
+}
+
+headers {
+  X-API-KEY: {{x-api-key}}
+}
+
+auth:bearer {
+  token: {{access_token}}
+}

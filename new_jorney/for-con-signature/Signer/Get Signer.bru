@@ -1,0 +1,19 @@
+meta {
+  name: Get Signer
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{api.url-base}}/document/signer/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 10412
+}
+
+auth:bearer {
+  token: {{auth.token}}
+}

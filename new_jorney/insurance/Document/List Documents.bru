@@ -1,0 +1,15 @@
+meta {
+  name: List Documents
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api.url-base}}/document
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{auth.token}}
+}

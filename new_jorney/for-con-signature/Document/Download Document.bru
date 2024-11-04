@@ -1,0 +1,19 @@
+meta {
+  name: Download Document
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{api.url-base}}/document/:public_id/download
+  body: none
+  auth: bearer
+}
+
+params:path {
+  public_id: 6e56127b-286a-4945-bab9-ab91c16e96f8
+}
+
+auth:bearer {
+  token: {{auth.token}}
+}

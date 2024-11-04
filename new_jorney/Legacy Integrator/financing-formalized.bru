@@ -1,0 +1,19 @@
+meta {
+  name: financing-formalized
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{legacy_integrator_host}}/legacy/financing-formalized/formalizations/2023-07-27/fidc_iii
+  body: none
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{legacy_integrator_token}}
+}

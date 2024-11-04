@@ -1,0 +1,21 @@
+meta {
+  name: SEND DOCUMENTS ACCESS
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{docstorage_host}}/formalizations/send-documents-access
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+body:json {
+  {
+    "endorsement_type": "scd"
+  }
+}

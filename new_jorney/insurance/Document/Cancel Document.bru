@@ -1,0 +1,19 @@
+meta {
+  name: Cancel Document
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{api.url-base}}/document/:public_id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  public_id: 
+}
+
+auth:bearer {
+  token: {{auth.token}}
+}

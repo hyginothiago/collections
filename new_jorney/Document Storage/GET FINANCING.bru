@@ -1,0 +1,22 @@
+meta {
+  name: GET FINANCING
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{docstorage_host}}/financing/get-financing?contract_date=2023-07-26&product_slug=fidc_iii&cession_date=2023-07-18&origin=fidc_ii
+  body: none
+  auth: bearer
+}
+
+params:query {
+  contract_date: 2023-07-26
+  product_slug: fidc_iii
+  cession_date: 2023-07-18
+  origin: fidc_ii
+}
+
+auth:bearer {
+  token: {{access_token}}
+}

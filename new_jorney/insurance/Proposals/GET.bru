@@ -1,0 +1,15 @@
+meta {
+  name: GET
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{insurance_host}}/policies/c5ff2367-287d-460a-ba42-40b758ac1bd5
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}

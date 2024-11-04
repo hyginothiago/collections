@@ -1,0 +1,20 @@
+meta {
+  name: New Request
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{simulator_host}}/project/9830ddc2-d39b-4d20-944c-6bfa5a7af6d4/addons?applied=true&addon_type=insurance
+  body: none
+  auth: bearer
+}
+
+params:query {
+  applied: true
+  addon_type: insurance
+}
+
+auth:bearer {
+  token: {{access_token}}
+}

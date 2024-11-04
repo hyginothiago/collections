@@ -1,0 +1,26 @@
+meta {
+  name: minha receita
+  type: http
+  seq: 1
+}
+
+get {
+  url: https://minhareceita.org/42.251.079/0001-73
+  body: none
+  auth: none
+}
+
+tests {
+  template = `
+  <pre><code>update consulta set json_base_cnpj ='{"data":{"arquivo":null,"capitalSocial":{{response.capital_social}},"cnae":"{{response.cnae_fiscal}}","cnpj":"{{response.cnpj}}","contatos":{"email":"{{response.email}}","telefone":"{{response.ddd_telefone_1}}"},"endereco":{"bairro":"{{response.bairro}}","cep":"{{response.cep}}","complemento":"{{response.complemento}}","logradouro":"{{response.logradouro}}","municipio":"{{response.municipio}}","numero":"{{response.numero}}","uf":"{{response.uf}}"},"inicioAtividades":"{{response.data_inicio_atividade}}T00:00:00Z","inseridoEm":"{{date}}T00:00:00Z","naturezaJuridica":{"categoria":"{{response.natureza_juridica}}","codigo":"{{response.codigo_natureza_juridica}}","descricao":"{{response.natureza_juridica}}"},"nomeFantasia":"{{response.nome_fantasia}}","optanteMei":{{mei}},"optanteSimples":{{simples}},"porte":"{{porte}}","razaoSocial":"{{response.razao_social}}","situacaoCadastral":{"data":"{{response.data_situacao_cadastral}}T00:00:00Z","situacao":"{{descricao_situacao_cadastral}}"}}}' where financiamento_id = XPTO and bureau = 'Nogord';</code></pre>
+  `;
+  
+  pm.visualizer.set(template, {
+      response: res.getBody(),
+      date: (new Date().toISOString().slice(0, 10)),
+      mei: res.getBody().opcao_pelo_mei == true,
+      simples: res.getBody().opcao_pelo_simples == true,
+      descricao_situacao_cadastral: res.getBody().descricao_situacao_cadastral.toLowerCase(),
+      porte: res.getBody().porte.toLowerCase(),
+  });
+}

@@ -1,0 +1,33 @@
+meta {
+  name: Add Signer
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{api.url-base}}/document/:public_id/signer
+  body: json
+  auth: bearer
+}
+
+params:path {
+  public_id: 
+}
+
+auth:bearer {
+  token: {{auth.token}}
+}
+
+body:json {
+  {
+      "notify_client": true,
+      "token_channel": "sms",
+      "signer": {
+          "email": "luizeduardo354@gmail.com",
+          "phone": "86995418057",
+          "name": "Luis Eduardo",
+          "documentation": "052.040.453-09",
+          "birthday": "1992-01-06"
+      }
+  }
+}

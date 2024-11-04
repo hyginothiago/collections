@@ -1,0 +1,23 @@
+meta {
+  name: Upload Document
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{api.url-base}}/document
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{auth.token}}
+}
+
+body:json {
+  {
+      "original_path": "formalizacao/FIDC-V-MONEYPLUS/2022/12-Dezembro/31/contrato_com_capa.pdf",
+      "file_name": "contrato_com_capa.pdf",
+      "financing_id": 123
+  }
+}

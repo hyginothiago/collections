@@ -1,0 +1,21 @@
+meta {
+  name: EXECUTE ENDORSEMENT
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{docstorage_host}}/formalizations/execute-endorsements
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}
+
+body:json {
+  {
+    "endorsement_type": "scd"
+  }
+}

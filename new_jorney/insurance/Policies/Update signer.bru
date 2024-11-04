@@ -1,0 +1,29 @@
+meta {
+  name: Update signer
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{api.url-base}}/document/signer/:id
+  body: json
+  auth: bearer
+}
+
+params:path {
+  id: 10
+}
+
+auth:bearer {
+  token: {{auth.token}}
+}
+
+body:json {
+  {
+      "email": "jrventaja@gmail.com",
+      "name": "Marcos Zumba",
+      "phone": "11999671447",
+      "documentation": "474.653.508-67",
+      "birthday": "1983-03-31"
+  }
+}

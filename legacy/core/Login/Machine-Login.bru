@@ -1,0 +1,26 @@
+meta {
+  name: Machine-Login
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{server}}/realms/{{realm}}/protocol/openid-connect/token
+  body: formUrlEncoded
+  auth: none
+}
+
+body:form-urlencoded {
+  grant_type: password
+  username: luana.jesus@solfacil.com.br
+  password: L1234567@
+  client_id: legacy
+}
+
+tests {
+  test("Get token auth", function () {
+      var jsonData = res.getBody();
+      bru.setEnvVar("access_token", jsonData.access_token)
+      bru.setEnvVar("refresh_token", jsonData.refresh_token)
+  });
+}
